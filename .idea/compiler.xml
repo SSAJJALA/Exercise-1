@@ -28,7 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="firstmavenwebapp" target="1.5" />
-      <module name="userdisplayexercise" target="1.5" />
+      <module name="userdisplayexercise" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -18,12 +18,17 @@
                     <th>User ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Age</th>
                 </tr>
                 <c:forEach items="${users}" var="user">
                     <tr>
                         <td>${user.userid}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
+                        <td>${user.dateOfBirth}</td>
+                        <c:set var="date" scope="session" value="${user.dateOfBirth}"/>
+                        <td>${user.calculateAge(date)}</td>
                     </tr>
                 </c:forEach>
             </table>

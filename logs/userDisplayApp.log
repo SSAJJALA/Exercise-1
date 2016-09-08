@@ -4,3 +4,10 @@ In doGet() from SearchTerm class - Info
 In doGet() method - Info message
 In doGet() method - Warn message
 In doGet() method - Warn message
+In doGet() method - Warn message
+SearchUser.getAllUsers()...Exception: java.time.format.DateTimeParseException: Text '1964-04-01' could not be parsed at index 5
+In doGet() method - Warn message
+SearchUser.getAllUsers()...Exception: java.time.format.DateTimeParseException: Text '1964-04-01' could not be parsed at index 5
+In doGet() method - Warn message
+In doGet() method - Warn message
+In doGet() method - Warn message

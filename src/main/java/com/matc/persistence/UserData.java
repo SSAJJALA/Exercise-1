@@ -7,8 +7,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Access users in the user table.
@@ -86,8 +89,19 @@ public class UserData {
         user.setLastName(results.getString("last_name"));
         user.setFirstName(results.getString("first_name"));
         user.setUserid(results.getString("id"));
+        String tempBirthDate = results.getString("date_of_birth");
+        user.setDateOfBirth(formatDate(tempBirthDate));
         // TODO map the remaining fields
         return user;
+    }
+
+    private LocalDate formatDate (String dob) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.US);
+        LocalDate date = LocalDate.parse(dob, formatter);
+        return date;
+
     }
 
 }

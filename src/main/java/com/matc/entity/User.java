@@ -2,6 +2,9 @@ package com.matc.entity;
 // TODO Add instance variable for the date of birth
 // TODO Add a calculation for the user's age. Age should not be stored, it should be calculated only.
 
+import java.time.LocalDate;
+import java.time.Period;
+
 /**
  * A class to represent a user.
  *
@@ -11,6 +14,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String userid;
+    private LocalDate dateOfBirth;
 
 
     /**
@@ -21,15 +25,18 @@ public class User {
 
     /**
      * Instantiates a new User.
-     *
      * @param firstName the first name
      * @param lastName  the last name
      * @param userid    the userid
+     * @param dateOfBirth
+
      */
-    public User(String firstName, String lastName, String userid) {
+    public User(String firstName, String lastName, String userid, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userid = userid;
+        this.dateOfBirth = dateOfBirth;
+
     }
 
 
@@ -87,6 +94,36 @@ public class User {
         this.userid = userid;
     }
 
+    /**
+     * Gets dateOfBirth.
+     *
+     * @return the dateOfBirth
+     */
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * sets dateOfBirth.
+     *
+     * @param dateOfBirth the dateOfBirth
+     */
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+
+    public int calculateAge(LocalDate dateOfBirth) {
+        if (dateOfBirth != null) {
+            int age = Period.between(dateOfBirth, LocalDate.now()).getYears();
+            return age;
+        } else {
+
+            return 0;
+        }
+
+    }
 
     @Override
     public String toString() {
@@ -94,6 +131,7 @@ public class User {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userid='" + userid + '\'' +
+                ", dateOfbirth='" + dateOfBirth + '\'' +
                 '}';
     }
 
